@@ -9,6 +9,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener
 import kotlinx.android.synthetic.main.activity_main.*
 import yonky.kotlintest.R
 import yonky.kotlintest.base.BaseActivity
+import yonky.kotlintest.mvp.model.bean.TabEntity
 import yonky.kotlintest.showToast
 import yonky.kotlintest.ui.fragment.HomeFragment
 

@@ -18,4 +18,13 @@
 
     <color name="color_gray_translucent">#5000</color>
     <color name="color_translucent">#00000000</color>
+
+
+    <!-- item 标题颜色 -->
+    <color name="color_item_title">#000000</color>
+
+    <color name="color_light_black">#5000</color>
+    <color name="color_darker_gray">#aaa</color>
+
+
 </resources>
