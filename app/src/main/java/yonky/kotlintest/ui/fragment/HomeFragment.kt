@@ -100,7 +100,7 @@ class HomeFragment : BaseFragment(), HomeContract.View{
                 if(currentVisibleItemPosition==0){
 //                  背景设置为透明
                     toolbar.setBackgroundColor(getColor(R.color.color_translucent))
-                    iv_search.setBackgroundColor(R.mipmap.ic_action_search_white)
+                    iv_search.setImageResource(R.mipmap.ic_action_search_white)
                     tv_header_title.text=""
                 }else{
                     if(mHomeAdapter?.mData!!.size>1){

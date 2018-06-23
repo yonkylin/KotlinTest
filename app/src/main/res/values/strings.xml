@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">KotlinTest</string>
+    <string name="video_offline">缓存</string>
+    <string name="video_attention">+ 关注</string>
 
 
 

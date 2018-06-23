@@ -3,19 +3,21 @@ package yonky.kotlintest.ui.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.provider.SyncStateContract
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import io.reactivex.Observable
+import yonky.kotlintest.Constants
 import yonky.kotlintest.R
 import yonky.kotlintest.durationFormat
 import yonky.kotlintest.glide.GlideApp
 import yonky.kotlintest.mvp.model.bean.HomeBean
+import yonky.kotlintest.ui.activity.VideoDetailActivity
 import yonky.kotlintest.view.recyclerview.ViewHolder
 import yonky.kotlintest.view.recyclerview.adapter.CommonAdapter
 
@@ -207,7 +209,7 @@ class HomeAdapter(context: Context, data:ArrayList<HomeBean.Issue.Item>)
         holder.setText(R.id.tv_category, "#" + itemData?.category)
 
         holder.setOnItemClickListener(listener = View.OnClickListener {
-//            goToVideoPlayer(mContext as Activity, holder.getView(R.id.iv_cover_feed), item)
+            goToVideoPlayer(mContext as Activity, holder.getView(R.id.iv_cover_feed), item)
         })
 
 
@@ -219,19 +221,19 @@ class HomeAdapter(context: Context, data:ArrayList<HomeBean.Issue.Item>)
      * @param activity
      * @param view
      */
-//    private fun goToVideoPlayer(activity: Activity, view: View, itemData: HomeBean.Issue.Item) {
-//        val intent = Intent(activity, VideoDetailActivity::class.java)
-//        intent.putExtra(SyncStateContract.Constants.BUNDLE_VIDEO_DATA, itemData)
-//        intent.putExtra(VideoDetailActivity.Companion.TRANSITION, true)
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-//            val pair = Pair<View, String>(view, VideoDetailActivity.Companion.IMG_TRANSITION)
-//            val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                    activity, pair)
-//            ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
-//        } else {
-//            activity.startActivity(intent)
-//            activity.overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
-//        }
-//    }
+    private fun goToVideoPlayer(activity: Activity, view: View, itemData: HomeBean.Issue.Item) {
+        val intent = Intent(activity, VideoDetailActivity::class.java)
+        intent.putExtra(Constants.BUNDLE_VIDEO_DATA, itemData)
+        intent.putExtra(VideoDetailActivity.Companion.TRANSITION, true)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            val pair = Pair<View, String>(view, VideoDetailActivity.Companion.IMG_TRANSITION)
+            val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    activity, pair)
+            ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
+        } else {
+            activity.startActivity(intent)
+            activity.overridePendingTransition(R.anim.anim_in, R.anim.anim_out)
+        }
+    }
 
 }
