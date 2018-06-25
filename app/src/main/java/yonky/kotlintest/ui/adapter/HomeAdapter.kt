@@ -113,7 +113,7 @@ class HomeAdapter(context: Context, data:ArrayList<HomeBean.Issue.Item>)
                 //没有使用到的参数在 kotlin 中用"_"代替
                 holder.getView<BGABanner>(R.id.banner).setDelegate { _, imageView, _, i ->
 
-//                    goToVideoPlayer(mContext as Activity, imageView, bannerItemData[i])
+                    goToVideoPlayer(mContext as Activity, imageView, bannerItemData[i])
 
                 }
             }

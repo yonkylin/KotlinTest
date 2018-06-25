@@ -4,7 +4,9 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url
+import yonky.kotlintest.mvp.model.bean.CategoryBean
 import yonky.kotlintest.mvp.model.bean.HomeBean
+import yonky.kotlintest.mvp.model.bean.TabInfoBean
 
 /**
  * Created by Administrator on 2018/6/21.
@@ -33,8 +35,8 @@ interface ApiService{
     /**
      * 获取分类
      */
-//    @GET("v4/categories")
-//    fun getCategory(): Observable<ArrayList<CategoryBean>>
+    @GET("v4/categories")
+    fun getCategory(): Observable<ArrayList<CategoryBean>>
 
     /**
      * 获取分类详情List
@@ -51,8 +53,8 @@ interface ApiService{
     /**
      * 获取全部排行榜的Info（包括，title 和 Url）
      */
-//    @GET("v4/rankList")
-//    fun getRankList():Observable<TabInfoBean>
+    @GET("v4/rankList")
+    fun getRankList():Observable<TabInfoBean>
 
     /**
      * 获取搜索信息

@@ -11,13 +11,15 @@ import yonky.kotlintest.R
 import yonky.kotlintest.base.BaseActivity
 import yonky.kotlintest.mvp.model.bean.TabEntity
 import yonky.kotlintest.showToast
+import yonky.kotlintest.ui.fragment.DiscoveryFragment
 import yonky.kotlintest.ui.fragment.HomeFragment
+import yonky.kotlintest.ui.fragment.HotFragment
 
 /**
  * Created by Administrator on 2018/6/21.
  */
 class MainActivity: BaseActivity(){
-    private val mTitles = arrayOf("每日精选", "发现", "热门", "我的")
+    private val mTitles = arrayOf("每日精选", "发现", "热门")
 
     // 未被选中的图标
     private val mIconUnSelectIds = intArrayOf(R.mipmap.ic_home_normal, R.mipmap.ic_discovery_normal, R.mipmap.ic_hot_normal, R.mipmap.ic_mine_normal)
@@ -27,9 +29,9 @@ class MainActivity: BaseActivity(){
     private val mTabEntities = ArrayList<CustomTabEntity>()
 
     private var mHomeFragment: HomeFragment? = null
-    private var mDiscoveryFragment: HomeFragment? = null
-    private var mHotFragment: HomeFragment? = null
-    private var mMineFragment: HomeFragment? = null
+    private var mDiscoveryFragment: DiscoveryFragment? = null
+    private var mHotFragment: HotFragment? = null
+//    private var mMineFragment: HomeFragment? = null
 
     //默认为0
     private var mIndex = 0
@@ -83,21 +85,21 @@ class MainActivity: BaseActivity(){
             1  //发现
             -> mDiscoveryFragment?.let {
                 transaction.show(it)
-            } ?: HomeFragment.getInstance(mTitles[position]).let {
+            } ?: DiscoveryFragment.getInstance(mTitles[position]).let {
                 mDiscoveryFragment = it
                 transaction.add(R.id.fl_container, it, "discovery") }
             2  //热门
             -> mHotFragment?.let {
                 transaction.show(it)
-            } ?: HomeFragment.getInstance(mTitles[position]).let {
+            } ?: HotFragment.getInstance(mTitles[position]).let {
                 mHotFragment = it
                 transaction.add(R.id.fl_container, it, "hot") }
-            3 //我的
-            -> mMineFragment?.let {
-                transaction.show(it)
-            } ?: HomeFragment.getInstance(mTitles[position]).let {
-                mMineFragment = it
-                transaction.add(R.id.fl_container, it, "mine") }
+//            3 //我的
+//            -> mMineFragment?.let {
+//                transaction.show(it)
+//            } ?: HomeFragment.getInstance(mTitles[position]).let {
+//                mMineFragment = it
+//                transaction.add(R.id.fl_container, it, "mine") }
 
             else -> {
 
@@ -118,7 +120,7 @@ class MainActivity: BaseActivity(){
         }
         mDiscoveryFragment?.let{transaction.hide(it)}
         mHotFragment?.let{transaction.hide(it)}
-        mMineFragment?.let{transaction.hide(it)}
+//        mMineFragment?.let{transaction.hide(it)}
     }
 
 
